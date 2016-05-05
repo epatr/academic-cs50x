@@ -5,29 +5,27 @@ int main(void) {
     
     // prompt the user for a height
     printf("Height: ");
-    int height;
-    do {
-        height = GetInt();
-    } while (height is invalid);
+    int height = GetInt();
     
     if (height > 0) {
-        int spaces = height - 1;
-        int hashes = 2;
-        char output;
         
-        for (int i = 0; i < height; i++) {
+        // spaces starts at 0 and goes to height-1
+        int hashes = 1;
+        // spaces start at height-1 because it'll go to 0
+        int spaces = height-1;
+        
+        // create a row, starting at 0 and less than the height input
+        for (i = 0; i < height; i++) {
+        
+            do {
+                printf("#");
+                height--;
+            } while (height > hashes);
             
-            // first put the amount of spaces
-            for (int s = spaces; s > 0; s--) {
-                output = output + "*";
-            }
-            
-            // then the amount of stars with a line break
-            for (int h = hashes; h < hashes; h++) {
-                output += "#";
-            }
-            printf(%c "\n", output);
+        printf("\n");
         }
+
+
     }
     
 }
