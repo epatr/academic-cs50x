@@ -3,26 +3,39 @@
 
 int main(void) {
     
-    // prompt the user for a height
+    // prompt the user for a height greater than 0 and less than 23
+    int height;
+    
+    do {
     printf("Height: ");
-    int height = GetInt();
+    height = GetInt();
+    } while (height < 0 || height > 23);
     
     if (height > 0) {
         
-        // spaces starts at 0 and goes to height-1
+        // top row is always 1 hash
         int hashes = 1;
-        // spaces start at height-1 because it'll go to 0
+        
+        // no spaces on the last line
         int spaces = height-1;
-        
+
         // create a row, starting at 0 and less than the height input
-        for (i = 0; i < height; i++) {
-        
-            do {
-                printf("#");
-                height--;
-            } while (height > hashes);
+        for (int i = 0; i < height; i++) {
             
-        printf("\n");
+            hashes++;
+            
+            for (int s = 0; spaces > s; s++) {
+                printf(" ");
+            }
+            
+            for (int h = 0; h < hashes; h++) {
+                printf("#");
+            }
+            
+            printf("\n");
+            
+            spaces--;
+            
         }
 
 
